@@ -1,4 +1,8 @@
 import './globals.css'
+import {Ubuntu} from "@next/font/google"
+import Link from 'next/link'
+
+const ubuntu = Ubuntu({weight: ['400', '700'], subsets: ['latin']})
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +12,15 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+
+      <body className={`${ubuntu.className}`}>
+        <nav>
+          <ul>
+            <li> <Link href={`/`}>Home</Link> </li>
+          </ul>
+        </nav>
+        {children}
+      </body>
     </html>
   )
 }
